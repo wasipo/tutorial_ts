@@ -28,7 +28,7 @@ class App extends React.Component<{},{ listdata: { name: string; age: number; }[
 
     renderRows() {
         const {listdata} = this.state;
-        let result:any[] = [];
+        let result:Array<JSX.Element | string> = [];
         listdata.map(entry =>{
             result.push(
                 <div>
