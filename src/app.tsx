@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import ReactDOM from "react-dom";
-import LayoutMaster from './layoutmaster';
-
-
-
-
-ReactDOM.render(
-  <LayoutMaster />,
-  document.getElementById('output'),
-);
-=======
 import React from 'react'
 import ReactDOM from "react-dom";
 
@@ -65,4 +52,3 @@ class App extends React.Component<{},{ listdata: { name: string; age: number; }[
 
 const elem = document.getElementById('output');
 ReactDOM.render(<App/>, elem);
->>>>>>> 1a3379f9854fd454146d28bcd18435b464901c1e
