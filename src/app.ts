@@ -1,4 +1,5 @@
 import {Item} from './item';
+import React from 'react'
 import $ from 'jquery';
 const elem = document.getElementById('output');
 
@@ -6,6 +7,11 @@ const elem = document.getElementById('output');
 const rootID:string = '#output';
 const inputID:string = '#outputTask';
 const max:number = 10;
+
+$('#delete_button').on('click',function(e){
+    $('#output').find('div').remove();
+})
+
 
 $(inputID).on('keyup',function(e){    
     if (e.key === "Enter"){
