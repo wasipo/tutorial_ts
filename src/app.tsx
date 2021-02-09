@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from "react-dom";
-
+import Header from './components/header'
 
 class App extends React.Component<{},{ listdata: { name: string; age: number; }[]; }> {
 
@@ -28,7 +28,7 @@ class App extends React.Component<{},{ listdata: { name: string; age: number; }[
 
     renderRows() {
         const {listdata} = this.state;
-        let result:Array<JSX.Element | string> = [];
+        let result:Array<JSX.Element | string | null > = [];
         listdata.map(entry =>{
             result.push(
                 <div>
@@ -41,6 +41,7 @@ class App extends React.Component<{},{ listdata: { name: string; age: number; }[
     render(){
         return (
             <div>
+                <Header />
                 <div>
                     {this.renderRows()}
                 </div>
