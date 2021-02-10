@@ -4,8 +4,6 @@ import Header from './components/header'
 import AddData from './functions/addData'
 
 class App extends React.Component<{},{ listdata: { name: string; age: number; }[]; }> {
-
-
     render(){
         return (
             <div>

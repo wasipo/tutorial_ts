@@ -1,4 +1,5 @@
 import React from 'react'
+import ReserveSettingForm from './components/form/ReserveSettingForm'
 // import Header from './components/header/common_header';
 // import Meta from './components/wrapper/meta'
 
@@ -12,7 +13,7 @@ class ReserveSetting extends React.Component {
           <h1>予約可能時間登録</h1>
           <h2>I am</h2>
         </div>
-
+        <ReserveSettingForm />
       </div>
     )
   }
