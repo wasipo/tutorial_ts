@@ -4,7 +4,7 @@ import CreateForm from "../../parts/CreateForm"
 
 
 interface formData {
-    key: number;
+    id: number;
     formtype: string; 
     name: string|undefined;
     formvalue: string | number | readonly string[] | undefined; 
@@ -21,7 +21,7 @@ class SettingForm extends React.Component<{},{listdata: formData[];}> {
         this.state = {
             listdata: [
                 { 
-                    key: 1,
+                    id: 1,
                     formtype: 'text',
                     name: 'hogeyamada',
                     formvalue: undefined,
@@ -29,7 +29,7 @@ class SettingForm extends React.Component<{},{listdata: formData[];}> {
                     selected: null
                 },
                 { 
-                    key: 2,
+                    id: 2,
                     formtype: 'text', 
                     name: 'iiyama',
                     formvalue: undefined,
@@ -37,7 +37,7 @@ class SettingForm extends React.Component<{},{listdata: formData[];}> {
                     selected: null
                 },
                 { 
-                    key: 3,
+                    id: 3,
                     formtype: 'text',
                     name: 'tanaka',
                     formvalue: undefined,
@@ -51,15 +51,16 @@ class SettingForm extends React.Component<{},{listdata: formData[];}> {
     renderForms() {
         const {listdata} = this.state;
         let result:Array<JSX.Element | string | null > = [];
-        listdata.map((entry:formData) =>{
+        listdata.map((entry:formData,index) =>{
             result.push(
-                <CreateForm 
-                key={entry.key}
-                formtype={entry.formtype}
-                name={entry.name} 
-                formvalue={entry.formvalue} 
-                disabled={entry.disabled} 
-                selected={entry.selected} />
+                <input key={entry.id} name={entry.name} type={entry.formtype} value={entry.formvalue} />
+                // <CreateForm 
+                // id={entry.id}
+                // formtype={entry.formtype}
+                // name={entry.name} 
+                // formvalue={entry.formvalue} 
+                // disabled={entry.disabled} 
+                // selected={entry.selected} />
             );
         });
 
@@ -69,8 +70,9 @@ class SettingForm extends React.Component<{},{listdata: formData[];}> {
     }
     
     render () {
+
         return (<div>
-            {this.renderForms()}
+            {this.renderForms()} 
         </div>)
     } 
 

@@ -8,7 +8,7 @@ class App extends React.Component<{},{ listdata: { name: string; age: number; }[
         return (
             <div>
                 <Header />
-                <AddData />
+                {/* <AddData /> */}
             </div>
         );
     }

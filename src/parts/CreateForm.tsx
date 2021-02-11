@@ -2,6 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 
 interface formData {
+    id :number;
     formtype: string;
     name: string|undefined;
     formvalue: string | number | readonly string[] | undefined; 
@@ -16,7 +17,7 @@ class FormFactory extends React.Component<formData> {
     }
 
     render () {
-        return <input name={this.props.name} type={this.props.formtype} value={this.props.formvalue} />
+        return <input key={this.props.id} name={this.props.name} type={this.props.formtype} value={this.props.formvalue} />
     }
 
 }
