@@ -1,6 +1,13 @@
 const path = require('path');
-module.exports = {
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+module.exports = {
+    plugins: [
+        new MiniCssExtractPlugin({
+          filename: "style.css"
+        }),
+        // ...
+    ],
     context: path.join(__dirname, 'src'),
     // モジュールバンドルを行う起点となるファイルの指定
     // 指定できる値としては、ファイル名の文字列や、それを並べた配列やオブジェクト
@@ -35,7 +42,16 @@ module.exports = {
                 test:/\.(?:ts|tsx)$/,
                 loader:'ts-loader',
                 exclude: /node_modules/,
-            }
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                  MiniCssExtractPlugin.loader,
+                  { loader: "css-loader", options: { importLoaders: 1 } },
+                  { loader: "postcss-loader" }
+                ]
+            },
         ]
     },
 
