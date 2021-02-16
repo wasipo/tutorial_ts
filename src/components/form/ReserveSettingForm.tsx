@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import CreateForm from "../../parts/CreateForm"
+import j from "jQuery";
 
 
 type formData =  {
@@ -71,11 +72,13 @@ class SettingForm extends React.Component<{},{listdata: formDataWrap[];}> {
         const {listdata} = this.state;
         let result:Array<JSX.Element | string | null > = [];
         listdata.map((entry:formDataWrap,index) =>{
+            result.push(<div></div>);
             entry.wrap.map((entry1:formData,nestIndex)=>{
                 result.push(
                     <input key={entry1.id} name={entry1.name} type={entry1.formtype} value={entry1.formvalue} />
                 );
             })
+            
         });
 
         return result;
