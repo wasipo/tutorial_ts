@@ -46,17 +46,17 @@ class SettingForm extends React.Component<{},{listdata: formDataWrap[];}> {
             {
                 wrap :[
                     { 
-                        id: 1,
+                        id: 3,
                         formtype: 'text',
-                        name: 'hogeyamada',
+                        name: 'a_hogeyamada',
                         formvalue: undefined,
                         disabled: undefined,
                         selected: null
                     },
                     { 
-                        id: 2,
+                        id: 4,
                         formtype: 'text', 
-                        name: 'iiyama',
+                        name: 'b_iiyama',
                         formvalue: undefined,
                         disabled: undefined,
                         selected: null
@@ -71,9 +71,11 @@ class SettingForm extends React.Component<{},{listdata: formDataWrap[];}> {
         const {listdata} = this.state;
         let result:Array<JSX.Element | string | null > = [];
         listdata.map((entry:formDataWrap,index) =>{
-            result.push(
-                <input key={entry.wrap[index].id} name={entry.wrap[index].name} type={entry.wrap[index].formtype} value={entry.wrap[index].formvalue} />
-            );
+            listdata.map((entry1:any,nestIndex)=>{
+                result.push(
+                    <input key={entry1.id} name={entry1.name} type={entry1.formtype} value={entry1.formvalue} />
+                );
+            })
         });
 
         return result;
