@@ -71,7 +71,7 @@ class SettingForm extends React.Component<{},{listdata: formDataWrap[];}> {
         const {listdata} = this.state;
         let result:Array<JSX.Element | string | null > = [];
         listdata.map((entry:formDataWrap,index) =>{
-            listdata.map((entry1:any,nestIndex)=>{
+            entry.wrap.map((entry1:formData,nestIndex)=>{
                 result.push(
                     <input key={entry1.id} name={entry1.name} type={entry1.formtype} value={entry1.formvalue} />
                 );
